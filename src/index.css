@@ -1,0 +1,878 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Cormorant Garamond:Italic";
+  src: url("https://static.figma.com/font/CormorantGaramond-Italic_wght__1") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond:Regular";
+  src: url("https://static.figma.com/font/CormorantGaramond_wght__1") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "DM Sans:Medium";
+  src: url("https://static.figma.com/font/DMSans_opsz_wght__1") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "DM Sans:Regular";
+  src: url("https://static.figma.com/font/DMSans_opsz_wght__1") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Noto Sans Math:Regular";
+  src: url("https://static.figma.com/font/NotoSansMath-Regular_1") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Noto Sans Symbols2:Regular";
+  src: url("https://static.figma.com/font/NotoSansSymbols2-Regular_5") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Noto Sans Symbols:Medium";
+  src: url("https://static.figma.com/font/NotoSansSymbols-VF_2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Noto Sans Symbols:Regular";
+  src: url("https://static.figma.com/font/NotoSansSymbols-VF_2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Noto Sans:Medium";
+  src: url("https://static.figma.com/font/NotoSans-VF_3") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Noto Sans:Regular";
+  src: url("https://static.figma.com/font/NotoSans-VF_3") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+:root {
+  color: #f7ede0;
+  background: #0f172a;
+  font-family: "DM Sans:Regular", sans-serif;
+  font-synthesis: none;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    min-width: 320px;
+    min-height: 100dvh;
+    background: #0f172a;
+  }
+  button,
+  input {
+    font-variation-settings: "opsz" 14;
+  }
+  button {
+    cursor: pointer;
+  }
+  button:focus-visible,
+  input:focus-visible {
+    outline: 2px solid #e5cc8e;
+    outline-offset: 3px;
+  }
+}
+
+.invitation {
+  width: 100%;
+  overflow: hidden;
+  background: #0f172a;
+}
+.hero {
+  position: relative;
+  min-height: 844px;
+  padding: 54px 24px 26px;
+  overflow: hidden;
+}
+.brand {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  color: #d8bc77;
+  font:
+    500 10px/1 "DM Sans:Medium",
+    sans-serif;
+  letter-spacing: 3.3px;
+}
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(231, 200, 152, 0.2);
+  backdrop-filter: blur(10px);
+}
+.music-player {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  width: min(242px, 75vw);
+  height: 54px;
+  margin: 29px auto 0;
+  border-radius: 27px;
+  color: inherit;
+  text-align: left;
+}
+.music-control {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin: 8px 0 0 8px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.16);
+  color: #d4af37;
+}
+.music-control img {
+  width: 16px;
+  height: 16px;
+}
+.music-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 7px 0 0 12px;
+}
+.music-copy strong {
+  font:
+    500 12px/1.2 "DM Sans:Medium",
+    sans-serif;
+  color: #f6ecdd;
+}
+.music-copy small {
+  font:
+    400 9px/1.2 "DM Sans:Regular",
+    sans-serif;
+  color: #b8b7c4;
+}
+.equalizer {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 17px 12px 0 auto;
+  height: 16px;
+}
+.equalizer i {
+  display: block;
+  width: 2px;
+  border-radius: 1px;
+  background: #d4af37;
+  height: 3px;
+}
+.equalizer i:nth-child(2),
+.equalizer i:nth-child(4) {
+  height: 7px;
+}
+.equalizer i:nth-child(3) {
+  height: 11px;
+}
+.equalizer.is-playing i {
+  animation: equalize 0.75s ease-in-out infinite alternate;
+}
+.equalizer.is-playing i:nth-child(2) {
+  animation-delay: -0.25s;
+}
+.equalizer.is-playing i:nth-child(4) {
+  animation-delay: -0.5s;
+}
+@keyframes equalize {
+  to {
+    transform: scaleY(0.35);
+  }
+}
+
+.blush-atmosphere {
+  position: absolute;
+  top: 130px;
+  left: 10%;
+  width: 480px;
+  height: 580px;
+  opacity: 0.7;
+}
+.gilded-arch {
+  position: absolute;
+  top: 169px;
+  left: 50%;
+  width: min(304px, calc(100% - 86px));
+  height: 402px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 155px;
+  transform: translateX(-50%);
+}
+.floral-arrangement {
+  position: absolute;
+  width: 230px;
+  aspect-ratio: 230 / 259.487;
+}
+.floral-layer {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+.floral-layer-1 {
+  inset: 6.14% 6.67% 5.23% 7.36%;
+  width: 85.97%;
+  height: 88.63%;
+}
+.floral-layer-2 {
+  inset: 56.59% 41.54% 13.86% 5.13%;
+  width: 53.33%;
+  height: 29.55%;
+}
+.floral-layer-3 {
+  inset: 5.23% 10.26% 40.61% 41.18%;
+  width: 48.56%;
+  height: 54.16%;
+}
+.floral-layer-4 {
+  inset: 3.86% 5.01% 25.91% 5.81%;
+  width: 89.18%;
+  height: 70.23%;
+}
+.floral-layer-5 {
+  inset: 27.26% 23.74% 38.07% 36.52%;
+  width: 39.74%;
+  height: 34.67%;
+}
+.floral-layer-6 {
+  inset: 48.32% 47.55% 13.82% 7.46%;
+  width: 44.99%;
+  height: 37.86%;
+}
+.floral-layer-7 {
+  inset: 14.9% 15.67% 68.41% 70.51%;
+  width: 13.82%;
+  height: 16.69%;
+}
+.hero-flowers {
+  z-index: 3;
+  top: 393px;
+  left: calc(50% + 71px);
+  opacity: 0.9;
+}
+.edge-flowers {
+  top: 176px;
+  right: calc(100% - 58px);
+  width: 166px;
+  opacity: 0.65;
+  transform: rotate(14deg);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  margin: 60px auto 0;
+  text-align: center;
+}
+.eyebrow {
+  color: #d8bc77;
+  font:
+    500 9px/1.2 "DM Sans:Medium",
+    sans-serif;
+  letter-spacing: 2px;
+  font-variation-settings: "opsz" 14;
+}
+.hero h1 {
+  display: flex;
+  flex-direction: column;
+  margin: 17px 0 0;
+  font:
+    400 76px/0.75 "Cormorant Garamond:Regular",
+    serif;
+  color: #f9eee1;
+}
+.hero h1 em {
+  margin: 9px 0 5px;
+  color: #d4af37;
+  font:
+    italic 43px/1 "Cormorant Garamond:Italic",
+    serif;
+}
+.script-note {
+  font:
+    italic 13px/1.4 "Cormorant Garamond:Italic",
+    serif;
+  color: #cec6cb;
+}
+.hero-copy .script-note {
+  margin-top: 23px;
+}
+.date-line {
+  margin-top: 29px;
+  color: #e3c884;
+  font:
+    500 11px/1.2 "DM Sans:Medium",
+    sans-serif;
+  letter-spacing: 1.7px;
+}
+.location-line {
+  margin-top: 12px;
+  color: #c9c5d0;
+  font:
+    400 11px/1.2 "DM Sans:Regular",
+    sans-serif;
+}
+.countdown {
+  position: relative;
+  z-index: 4;
+  width: min(342px, 100%);
+  height: 118px;
+  margin: 57px auto 0;
+  border-color: rgba(212, 175, 55, 0.3);
+  border-radius: 22px;
+  box-shadow: 0 3px 12px rgba(212, 175, 55, 0.07);
+  text-align: center;
+}
+.countdown-title {
+  margin-top: 16px;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 7px;
+}
+.countdown-unit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.countdown-unit strong {
+  color: #fff3df;
+  font:
+    400 30px/1.2 "Cormorant Garamond:Regular",
+    serif;
+}
+.countdown-unit span {
+  margin-top: 4px;
+  color: #c4becc;
+  font:
+    400 8px/1 "DM Sans:Regular",
+    sans-serif;
+  letter-spacing: 1.3px;
+}
+.countdown-unit i {
+  position: absolute;
+  top: 5px;
+  right: -3px;
+  color: #a79469;
+  font:
+    400 19px/1 "Cormorant Garamond:Regular",
+    serif;
+}
+.gold-button {
+  display: block;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e9d59b, #c6a34c);
+  color: #182033;
+  font:
+    500 12px/1 "DM Sans:Medium",
+    sans-serif;
+}
+.hero-cta {
+  position: relative;
+  z-index: 4;
+  width: min(342px, 100%);
+  height: 50px;
+  margin: 26px auto 0;
+}
+.hero-cta span {
+  margin-left: 10px;
+}
+.scroll-prompt {
+  position: relative;
+  z-index: 4;
+  margin-top: 17px;
+  color: #a8a4b4;
+  text-align: center;
+  font:
+    400 8px/1 "DM Sans:Regular",
+    sans-serif;
+  letter-spacing: 1.4px;
+}
+
+.section-dark {
+  background: #111c2c;
+}
+.section-inner {
+  width: min(100% - 48px, 720px);
+  margin: 0 auto;
+}
+.story {
+  min-height: 440px;
+}
+.story .section-inner,
+.rsvp .section-inner {
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  padding-top: 34px;
+}
+.section-label {
+  margin-bottom: 18px;
+}
+h2 {
+  color: #f7ede0;
+  font:
+    400 42px/1.02 "Cormorant Garamond:Regular",
+    serif;
+}
+.body-copy {
+  margin-top: 25px;
+  color: #c8c4cb;
+  font:
+    400 13px/23px "DM Sans:Regular",
+    sans-serif;
+}
+.story-note {
+  margin-top: 17px;
+  color: #dcc1b5;
+  font-size: 19px;
+}
+.venue-card {
+  display: grid;
+  grid-template-columns: 46px 1px 1fr;
+  gap: 15px;
+  align-items: center;
+  height: 88px;
+  margin-top: 28px;
+  padding: 0 15px;
+  border: 1px solid rgba(190, 182, 174, 0.15);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.venue-monogram {
+  color: #d4af37;
+  font:
+    400 22px/1 "Cormorant Garamond:Regular",
+    serif;
+  letter-spacing: 4px;
+}
+.venue-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(212, 175, 55, 0.25);
+}
+.venue-card > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.venue-card strong {
+  color: #f5e8d6;
+  font:
+    400 19px/1 "Cormorant Garamond:Regular",
+    serif;
+}
+.venue-card small {
+  color: #c1baca;
+  font:
+    500 8px/1 "DM Sans:Medium",
+    sans-serif;
+  letter-spacing: 0.8px;
+}
+
+.pass-section {
+  min-height: 596px;
+  padding-top: 34px;
+}
+.pass-section h2,
+.rsvp h2 {
+  font-size: 40px;
+}
+.section-subtitle {
+  margin-top: 9px;
+  color: #bdb7c5;
+  font:
+    400 12px/1.5 "DM Sans:Regular",
+    sans-serif;
+}
+.boarding-pass {
+  position: relative;
+  min-height: 398px;
+  margin-top: 31px;
+  padding: 21px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 22px;
+  background: linear-gradient(122.8deg, rgba(44, 53, 69, 0.96), #202d3d 35.7%, #38323c 71.4%);
+  box-shadow: 0 12px 15px rgba(0, 0, 0, 0.24);
+}
+.ticket-title {
+  font-size: 8px;
+  letter-spacing: 1.3px;
+  color: #dcc17b;
+}
+.ticket-rule {
+  height: 1px;
+  margin-top: 17px;
+  background: rgba(212, 175, 55, 0.2);
+}
+.ticket-label {
+  margin-top: 18px;
+  color: #bdb7c5;
+  font:
+    500 8px/1 "DM Sans:Medium",
+    sans-serif;
+  letter-spacing: 1.3px;
+}
+.boarding-pass h3 {
+  margin-top: 6px;
+  color: #f8ede0;
+  font:
+    400 31px/1.1 "Cormorant Garamond:Regular",
+    serif;
+}
+.verified {
+  display: inline-block;
+  margin-top: 13px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: rgba(137, 198, 174, 0.12);
+  color: #acd9c7;
+  font:
+    500 7px/1 "DM Sans:Medium",
+    sans-serif;
+  letter-spacing: 0.4px;
+}
+.ticket-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+.ticket-details span {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ticket-details small {
+  color: #afa9b9;
+  font:
+    400 8px/1 "DM Sans:Regular",
+    sans-serif;
+  letter-spacing: 1.2px;
+}
+.ticket-details strong {
+  color: #f3e9db;
+  font:
+    500 12px/1 "DM Sans:Medium",
+    sans-serif;
+}
+.perforation {
+  position: relative;
+  height: 1px;
+  margin: 30px -8px 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0.36) 0 5px,
+    transparent 5px 10px
+  );
+}
+.notch {
+  position: absolute;
+  top: -7px;
+  width: 14px;
+  height: 14px;
+}
+.notch.left {
+  left: -21px;
+}
+.notch.right {
+  right: -21px;
+}
+.code-label {
+  margin-top: 23px;
+  letter-spacing: 1px;
+}
+.access-code {
+  margin-top: 9px;
+  color: #e6cc8a;
+  font:
+    500 20px/1 "DM Sans:Medium",
+    sans-serif;
+  letter-spacing: 2px;
+}
+.download-button {
+  width: 100%;
+  height: 45px;
+  margin-top: 29px;
+  background: #e5cc8e;
+}
+.download-button span {
+  margin-right: 9px;
+}
+.ticket-footnote {
+  margin: 17px 0 12px;
+  color: #a9a5b4;
+  text-align: center;
+  font:
+    400 8px/1 "DM Sans:Regular",
+    sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.rsvp {
+  min-height: 620px;
+  padding-top: 20px;
+}
+.rsvp .section-inner {
+  padding-top: 27px;
+}
+.rsvp-subtitle {
+  margin-top: 13px;
+  color: #c8c2cf;
+  line-height: 21px;
+}
+.input-label,
+fieldset legend {
+  display: block;
+  margin-top: 27px;
+  color: #d3c6ad;
+  font:
+    500 8px/1 "DM Sans:Medium",
+    sans-serif;
+  letter-spacing: 1.1px;
+}
+.lookup-field {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  margin-top: 14px;
+  border: 1px solid rgba(181, 177, 192, 0.25);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+}
+.lookup-field.match {
+  border-color: rgba(212, 175, 55, 0.65);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.12);
+}
+.lookup-field img {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+}
+.lookup-field input {
+  min-width: 0;
+  flex: 1;
+  height: 100%;
+  padding: 0 13px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #f1e7da;
+  font:
+    400 13px/1 "DM Sans:Regular",
+    sans-serif;
+}
+.lookup-field button {
+  width: 42px;
+  border: 0;
+  background: none;
+  color: #c2bbca;
+  font-size: 21px;
+}
+.match-message {
+  min-height: 13px;
+  margin: 10px 2px 0;
+  color: #a9d5c1;
+  font:
+    400 10px/1.3 "DM Sans:Regular",
+    sans-serif;
+}
+.match-message.no-match {
+  color: #d2b9ae;
+}
+.guest-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 73px;
+  margin-top: 20px;
+  padding: 0 16px;
+  border: 1px solid rgba(138, 186, 167, 0.25);
+  border-radius: 16px;
+  background: rgba(138, 186, 167, 0.06);
+}
+.guest-card span {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.guest-card strong {
+  color: #f2e9db;
+  font:
+    400 20px/1 "Cormorant Garamond:Regular",
+    serif;
+}
+.guest-card small {
+  color: #bdb8c7;
+  font:
+    400 10px/1 "DM Sans:Regular",
+    sans-serif;
+}
+.guest-card b {
+  color: #acd7c3;
+  font:
+    500 17px/1 "DM Sans:Medium",
+    sans-serif;
+}
+fieldset {
+  border: 0;
+}
+fieldset:disabled {
+  opacity: 0.45;
+}
+fieldset legend {
+  margin-top: 24px;
+}
+.attendance-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 15px;
+}
+.attendance-options button {
+  height: 46px;
+  border: 1px solid rgba(181, 177, 192, 0.2);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #c5bfce;
+  font:
+    400 10px/1 "DM Sans:Regular",
+    sans-serif;
+}
+.attendance-options button.selected {
+  border-color: rgba(212, 175, 55, 0.7);
+  background: rgba(212, 175, 55, 0.15);
+  color: #ebd8a4;
+  font-family: "DM Sans:Medium", sans-serif;
+  font-size: 11px;
+}
+.confirm-button {
+  width: 100%;
+  height: 50px;
+  margin-top: 21px;
+  background: #e5cc8e;
+}
+.closing-note {
+  margin-top: 16px;
+  color: #d2b9ae;
+  text-align: center;
+  font-size: 16px;
+}
+footer {
+  height: 160px;
+  padding-top: 25px;
+  text-align: center;
+}
+footer p {
+  margin-top: 17px;
+  color: #bfb6c1;
+  font:
+    500 8px/1 "DM Sans:Medium",
+    sans-serif;
+  letter-spacing: 2px;
+}
+footer .footer-monogram {
+  margin: 0;
+  color: #d4af37;
+  font:
+    italic 30px/1 "Cormorant Garamond:Italic",
+    serif;
+  letter-spacing: 0;
+}
+
+@media (min-width: 700px) {
+  .hero {
+    min-height: 900px;
+    padding-top: 56px;
+  }
+  .hero-copy {
+    margin-top: 72px;
+  }
+  .hero h1 {
+    font-size: 88px;
+  }
+  .gilded-arch {
+    width: 380px;
+    height: 470px;
+  }
+  .hero-flowers {
+    left: calc(50% + 120px);
+    top: 420px;
+    transform: scale(1.12);
+  }
+  .edge-flowers {
+    right: calc(100% - 95px);
+  }
+  .countdown {
+    margin-top: 72px;
+  }
+  .section-inner {
+    width: min(100% - 96px, 720px);
+  }
+  .story,
+  .pass-section,
+  .rsvp {
+    padding-bottom: 45px;
+  }
+  .boarding-pass {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero {
+    padding-inline: 16px;
+  }
+  .section-inner {
+    width: calc(100% - 32px);
+  }
+  .hero h1 {
+    font-size: 67px;
+  }
+  .hero-flowers {
+    left: calc(50% + 60px);
+  }
+  .attendance-options {
+    grid-template-columns: 1fr;
+  }
+  .rsvp {
+    padding-bottom: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
