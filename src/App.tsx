@@ -43,15 +43,15 @@ function Countdown() {
   const minutes = Math.floor((remaining / 60_000) % 60);
   const seconds = Math.floor((remaining / 1000) % 60);
   const values = [
-    [days, "DAYS"],
-    [hours, "HOURS"],
-    [minutes, "MINS"],
-    [seconds, "SECS"],
+    [days, "DIAS"],
+    [hours, "HORAS"],
+    [minutes, "MIN"],
+    [seconds, "SEG"],
   ] as const;
 
   return (
-    <div className="countdown glass-panel" aria-label={`${days} days until the wedding`}>
-      <p className="eyebrow countdown-title">THE BEGINNING OF FOREVER IN</p>
+    <div className="countdown glass-panel" aria-label={`${days} dias até o casamento`}>
+      <p className="eyebrow countdown-title">O COMEÇO DO PARA SEMPRE EM</p>
       <div className="countdown-grid">
         {values.map(([value, label], index) => (
           <div className="countdown-unit" key={label}>
@@ -67,23 +67,23 @@ function Countdown() {
 
 export default function App() {
   const [musicPlaying, setMusicPlaying] = useState(true);
-  const [lookup, setLookup] = useState("Sophia Bennett");
+  const [lookup, setLookup] = useState("Nome do Convidado");
   const [attendance, setAttendance] = useState<"yes" | "no">("yes");
   const [confirmed, setConfirmed] = useState(false);
 
   const guestFound =
-    lookup.trim().toLowerCase() === "sophia bennett" ||
+    lookup.trim().toLowerCase() === "Nome do Convidado" ||
     lookup.trim().toUpperCase() === "AJ27-SB084";
 
   const scrollToRsvp = () =>
     document.querySelector("#rsvp")?.scrollIntoView({ behavior: "smooth" });
 
   const downloadInvite = () => {
-    const invite = `AMELIA & JULIAN\n19 JUNE 2027\nVilla Balbiano · Lake Como, Italy\n\nExclusively invited: Sophia Bennett\nAdmission: You + one guest\nPrivate access code: AJ27 – SB084`;
+    const invite = `AMELIA & JULIAN\n19 DE JUNHO DE 2027\nVilla Balbiano · Lago de Como, Itália\n\nConvidado(a) exclusivo(a): Nome do Convidado\nEntrada: Você + um acompanhante\nCódigo de acesso privado: AJ27 – SB084`;
     const url = URL.createObjectURL(new Blob([invite], { type: "text/plain" }));
     const link = document.createElement("a");
     link.href = url;
-    link.download = "Amelia-and-Julian-invitation.txt";
+    link.download = "Convite-Amelia-e-Julian.txt";
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -96,7 +96,7 @@ export default function App() {
         <FloralArrangement className="hero-flowers" />
         <FloralArrangement variant="secondary" className="edge-flowers" />
 
-        <p className="brand">EVER IN BLOOM</p>
+        <p className="brand">Slogan do casal</p>
         <button
           className="music-player glass-panel"
           type="button"
@@ -111,8 +111,8 @@ export default function App() {
             )}
           </span>
           <span className="music-copy">
-            <strong>Golden Hour</strong>
-            <small>JVKE · our soundtrack</small>
+            <strong>Música à escolha</strong>
+            <small>Artista · nossa música</small>
           </span>
           <span className={`equalizer ${musicPlaying ? "is-playing" : ""}`} aria-hidden="true">
             <i />
@@ -124,48 +124,46 @@ export default function App() {
         </button>
 
         <div className="hero-copy">
-          <p className="eyebrow">TOGETHER WITH OUR FAMILIES</p>
+          <p className="eyebrow">JUNTOS COM AS NOSSAS FAMÍLIAS</p>
           <h1 id="couple-names">
-            <span>Amelia</span>
+            <span>Noiva</span>
             <em>&amp;</em>
-            <span>Julian</span>
+            <span>Noivo</span>
           </h1>
-          <p className="script-note">joyfully invite you to celebrate our wedding</p>
-          <p className="date-line">SATURDAY, 19 JUNE 2027</p>
-          <p className="location-line">Villa Balbiano · Lake Como, Italy</p>
+          <p className="script-note">convidamos você ao nosso casamento</p>
+          <p className="date-line">SÁBADO, X de X de 202X</p>
+          <p className="location-line">Local · Província, País</p>
         </div>
 
         <Countdown />
         <button className="gold-button hero-cta" type="button" onClick={scrollToRsvp}>
-          Celebrate with us <span aria-hidden="true">↗</span>
+          Celebre conosco <span aria-hidden="true">↗</span>
         </button>
         <p className="scroll-prompt">
-          SCROLL TO UNFOLD OUR STORY <span aria-hidden="true">↓</span>
+          DESLIZE PARA VER A NOSSA HISTÓRIA <span aria-hidden="true">↓</span>
         </p>
       </section>
 
       <section className="story section-dark">
         <div className="section-inner">
-          <p className="eyebrow section-label">01 / OUR STORY</p>
+          <p className="eyebrow section-label">01 / NOSSA HISTÓRIA</p>
           <h2>
-            Some things are
-            <br />
-            meant to bloom.
+            SLOGAN DO CASAL
           </h2>
           <p className="body-copy">
-            From a chance hello to a lifetime of yes.
+            De um "Olá" a uma vida juntos.
             <br />
-            With full hearts, we invite you to the next
+            Com o coração aberto, nós convidamos você
             <br className="mobile-only" />
-            chapter of our favorite love story.
+            para o início da nossa nova jornada.
           </p>
-          <p className="script-note story-note">It wouldn’t be the same without you.</p>
+          <p className="script-note story-note">Não seria o mesmo sem você.</p>
           <div className="venue-card">
             <span className="venue-monogram">V B</span>
             <span className="venue-divider" />
             <span>
-              <strong>Villa Balbiano</strong>
-              <small>LAKE COMO, ITALY · 4:00 PM</small>
+              <strong>Local</strong>
+              <small>PROVÍNCIA, PAÍS · HORA</small>
             </span>
           </div>
         </div>
@@ -173,52 +171,52 @@ export default function App() {
 
       <section className="pass-section">
         <div className="section-inner">
-          <p className="eyebrow section-label">02 / YOUR INVITATION</p>
-          <h2>Reserved for you.</h2>
-          <p className="section-subtitle">A little keepsake. An unforgettable day.</p>
+          <p className="eyebrow section-label">02 / SEU CONVITE</p>
+          <h2>Reservado para você.</h2>
+          <p className="section-subtitle">Uma pequena lembrança. Um dia inesquecível.</p>
 
           <article className="boarding-pass">
-            <p className="eyebrow ticket-title">THE WEDDING OF AMELIA &amp; JULIAN</p>
+            <p className="eyebrow ticket-title">O CASAMENTO DE AMELIA &amp; JULIAN</p>
             <div className="ticket-rule" />
-            <p className="ticket-label">EXCLUSIVELY INVITED</p>
-            <h3>Sophia Bennett</h3>
-            <span className="verified">● VERIFIED GUEST</span>
+            <p className="ticket-label">CONVIDADO(A) EXCLUSIVO(A)</p>
+            <h3>Nome do Convidado</h3>
+            <span className="verified">● CONVIDADO VERIFICADO</span>
             <div className="ticket-details">
               <span>
-                <small>DATE</small>
+                <small>DATA</small>
                 <strong>19 JUN 2027</strong>
               </span>
               <span>
-                <small>ADMISSION</small>
-                <strong>You + one guest</strong>
+                <small>ENTRADA</small>
+                <strong>Você + um acompanhante</strong>
               </span>
             </div>
             <div className="perforation">
               <img className="notch left" src={asset("66157.svg")} alt="" />
               <img className="notch right" src={asset("66157.svg")} alt="" />
             </div>
-            <p className="ticket-label code-label">YOUR PRIVATE ACCESS CODE</p>
+            <p className="ticket-label code-label">SEU CÓDIGO DE ACESSO PRIVADO</p>
             <p className="access-code">AJ27 – SB084</p>
             <button className="gold-button download-button" type="button" onClick={downloadInvite}>
-              <span aria-hidden="true">↓</span> Download PDF Invite
+              <span aria-hidden="true">↓</span> Baixar Convite em PDF
             </button>
           </article>
-          <p className="ticket-footnote">PERSONAL. PRIVATE. UNIQUELY YOURS.</p>
+          <p className="ticket-footnote">PESSOAL. PRIVADO. UNICAMENTE SEU.</p>
         </div>
       </section>
 
       <section className="rsvp section-dark" id="rsvp">
         <div className="section-inner">
-          <p className="eyebrow section-label">03 / THE JOY OF YOUR COMPANY</p>
-          <h2>Will you join us?</h2>
+          <p className="eyebrow section-label">03 / A ALEGRIA DA SUA COMPANHIA</p>
+          <h2>Você estará conosco?</h2>
           <p className="section-subtitle rsvp-subtitle">
-            Find your invitation and save your seat.
+            Encontre o seu convite e garanta o seu lugar.
             <br />
-            Kindly reply by 19 May 2027.
+            Por favor, responda até 19 de Maio de 2027.
           </p>
 
           <label className="input-label" htmlFor="guest-lookup">
-            YOUR NAME OR ACCESS CODE
+            SEU NOME OU CÓDIGO DE ACESSO
           </label>
           <div className={`lookup-field ${guestFound ? "match" : ""}`}>
             <img src={asset("b448f.svg")} alt="" />
@@ -229,10 +227,10 @@ export default function App() {
                 setLookup(event.target.value);
                 setConfirmed(false);
               }}
-              placeholder="Search guest name"
+              placeholder="Pesquisar nome do convidado"
             />
             {lookup && (
-              <button type="button" onClick={() => setLookup("")} aria-label="Clear search">
+              <button type="button" onClick={() => setLookup("")} aria-label="Limpar pesquisa">
                 ×
               </button>
             )}
@@ -240,37 +238,37 @@ export default function App() {
 
           {guestFound ? (
             <>
-              <p className="match-message">✓ Invitation found. A seat is waiting for you.</p>
+              <p className="match-message">✓ Convite encontrado. Um lugar está à sua espera.</p>
               <div className="guest-card">
                 <span>
-                  <strong>Sophia Bennett</strong>
-                  <small>2 seats reserved · AJ27–SB084</small>
+                  <strong>Nome do Convidado</strong>
+                  <small>X lugares reservados · ID</small>
                 </span>
                 <b aria-hidden="true">✓</b>
               </div>
             </>
           ) : (
             <p className="match-message no-match">
-              No invitation found. Try “Sophia Bennett” or “AJ27-SB084”.
+              Nenhum convite encontrado.
             </p>
           )}
 
           <fieldset disabled={!guestFound}>
-            <legend>WILL YOU BE ATTENDING?</legend>
+            <legend>VOCÊ VAI COMPARECER?</legend>
             <div className="attendance-options">
               <button
                 className={attendance === "yes" ? "selected" : ""}
                 type="button"
                 onClick={() => setAttendance("yes")}
               >
-                {attendance === "yes" ? "◉" : "○"} Joyfully accepts
+                {attendance === "yes" ? "◉" : "○"} Aceita com alegria
               </button>
               <button
                 className={attendance === "no" ? "selected" : ""}
                 type="button"
                 onClick={() => setAttendance("no")}
               >
-                {attendance === "no" ? "◉" : "○"} Regretfully declines
+                {attendance === "no" ? "◉" : "○"} Recusa com pesar
               </button>
             </div>
             <button
@@ -278,17 +276,17 @@ export default function App() {
               type="button"
               onClick={() => setConfirmed(true)}
             >
-              {confirmed ? "Response saved ✓" : "Confirm our seats ↗"}
+              {confirmed ? "Resposta salva ✓" : "Confirmar nossos lugares ↗"}
             </button>
           </fieldset>
-          <p className="script-note closing-note">A beautiful day is even better with you in it.</p>
+          <p className="script-note closing-note">Um dia lindo fica ainda melhor com a sua presença.</p>
         </div>
       </section>
 
       <footer>
         <p className="footer-monogram">A &amp; J</p>
-        <p>WITH LOVE, NOW &amp; ALWAYS</p>
-        <p>LAKE COMO · 19.06.2027</p>
+        <p>COM AMOR, AGORA E SEMPRE</p>
+        <p>LAGO DE COMO · 19.06.2027</p>
       </footer>
     </main>
   );
